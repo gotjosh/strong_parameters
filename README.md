@@ -58,6 +58,14 @@ params.require(:log_entry).permit!
 
 This will mark the `:log_entry` parameters hash and any subhash of it permitted.  Extreme care should be taken when using `permit!` as it will allow all current and future model attributes to be mass-assigned.
 
+## Permitted User defined Values
+
+You can also define especific values for the parameters by passing an `Array` of values.
+
+``` ruby
+params.require(:user).permit(:name, :password, :password_confirmation, role: ["admin", "user"])
+```
+
 ## Nested Parameters
 
 You can also use permit on nested parameters, like:
